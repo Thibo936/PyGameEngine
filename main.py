@@ -3,11 +3,12 @@ import pygame
 timer = pygame.time.Clock()
 SURFACE_SIZE = (1366, 768)
 ASPECT_RATIO = 16 / 9
-screen = pygame.display.set_mode(SURFACE_SIZE, pygame.RESIZABLE) # pygame.FULLSCREEN
+screen = pygame.display.set_mode(SURFACE_SIZE, pygame.RESIZABLE)  # pygame.FULLSCREEN
 pygame.display.set_caption("PyGameEngine")
 pygame.mouse.set_visible(False)
 
 render_surface = pygame.Surface(SURFACE_SIZE).convert()
+
 
 # Center and scale the render surface within the window while maintaining the aspect ratoi.
 def blit_scale_screen():
@@ -22,6 +23,7 @@ def blit_scale_screen():
     h = (win_h - target_h) // 2
     screen.fill((0, 0, 0))
     screen.blit(scaled, (w, h))
+
 
 from game_engine.ui import designer, game, home
 
@@ -63,7 +65,7 @@ while command:
     blit_scale_screen()
     pygame.display.update()
 
-    timer.tick(60) # FPS Limit
+    timer.tick(60)  # FPS Limit
     print(f"fps[{timer.get_fps() :.0f}]")
 
 pygame.quit()
